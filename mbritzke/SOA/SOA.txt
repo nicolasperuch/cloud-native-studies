@@ -1,0 +1,50 @@
+1) O que é Arquitetura de software de Verdade? Quais Elementos?
+   Com base na Lei de Conway, arquitetura de software é um reflexo do negócio. Se ele for bagunçado, então seu software 
+também será, mas também é mais que isso, trata de uma perspectiva diferente, onde ela não serve para resolver qualquer problema 
+mas foca no pensar sobre alguns problemas da aplicação, ou seja é design principal, não da solução e sim acima dela. 
+Os elementos são: 
+ - SOC, separação de conceitos, não posso acoplar, o diagrama de pacotes e onde as classes ficam nesses pacotes é um exemplo disso;
+ - Integridade conceitual, se existe uma solução para tal problema dentro da apliacação, eu espero e quero que ela ocorra sempre do 
+mesmo jeito;
+ - Escalabilidade, tanto de usuários quanto de programadores, um arquitetura bem feita diminui a quantidade de merge e o quanto os 
+programadores poderam trabalhar livremente;
+ - Profile, partes ou as próprias apliacações que usam mais CPU ou mais memoria ou mais disco ou mais rede;
+ - Metadados, dados que descrevem dados.
+
+2) Do que é composto um contrato de serviço?
+   Pelo nome do serviço, as operações públicas, numero de parametros, ordem de parametros, comportamento
+do serviço, output, versão do serviço, formato de dados, layout de dados e protocolo de acesso frontend.
+
+3) Falando de BC, modificar a ordenação de uma lista de retorno, implica em que?
+   Implica em quebra de contrato e isso afetará todas pessoas que utilizam a aplicação. Conforme a primeira
+aula de SOA, se tivéssemos dois desenvolvedores, nomeados como x e y. X cria uma calculadora que possui somente as operações
+básicas, e Y, por sua vez, utiliza o produto de X para criar a sua própria, que implementa as funções de raiz e
+potência. Quando X muda sua apliacação para realizar a soma de 3 numeros consecutivos acabará por impactar o 
+produto de Y, quebrando-o.
+
+4) Em SOA, tudo é serviço? Explique por que.
+   Não, só porque SOA é orientado a serviços não significa dizer que tudo precisa ser um serviço. Uma boa pratica é
+explorar os sistemas que já existem para procurar possívies candidatos a serviços, verificando se existe valor para o negócio em si
+e não para a TI.
+
+5) Quais são os principios do manifesto SOA?
+   Com o intuito de impedir que o mercado focasse no ferramental, os principios do manifesto SOA são: 
+Valor do negócio em relação a estratégia técnica, objetivos estratégicos em relação a benefícios específicos de projetos, 
+interoperabilidade intrínseca em relação a integração personalizada, serviços compartilhados em relação a implementações de 
+propósito específico, flexibilidade em relação a otimização e, por último, refinamento evolutivo em relação a busca da perfeição 
+inicial.
+
+6) Devemos ter um serviço CPU Bound e Latency Bound na mesma maquina?
+   Não, porque isso aumenta o nível de acoplamento dos serviços, se um deles apresentar algum problema e cair, todos
+os serviços que estão acoplados a ele caíram também. Caso o cenário seja pior, e a apliacação inteira esteja acoplada
+e um dos serviços cair, todo o software será impactado e vai cair.
+
+7) Cite 3 vantagens de um serviço com 1 operação Async.
+   Não-bloqueante, escalável e mais perfomático.          
+
+8) Explique a diferença de Long Running Job e Short, com exemplos.
+   Short, job que precisa de milisegundos ou segundos para de obter resposta.
+        Exemplos: Pesquisa no Google, operações basicas de matemática
+   Long, job que demora horas ou dias para processar ou precisa de um Cluster ou alguma força bruta maior para processar
+        Exemplos: Filmes de animação em CGI, renderização dessas imagens e algoritmos relacionados ao mercado científico, 
+        mapeamento de DNA.

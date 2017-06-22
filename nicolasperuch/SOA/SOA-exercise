@@ -1,0 +1,80 @@
+Nicolas Peruch <nicolas.peruch@ilegra.com> 
+Jovens Talentos 2017.
+
+1 - O que é Arquitetura de software de Verdade? Quais Elementos?
+	A arquitetura de software é pensar num problema maior, ou seja, pensar na solução como 
+um todo e não somente em pontos específicos, assim também podemos concluir que a arquitetura é 
+feita para resolver grandes problemas, e nao qualquer tipo de problema. Com isso nós temos 
+diversas formas de trata-los e um desses pontos seria mudar a perspectiva ao qual os vemos, 
+muita se fala em código oque de fato é muito importante mas a arquitetura de software vai muito além disso.
+	Seguem abaixo os elementos da arquitetura de software.
+	
+	Separation of Concerns - Consiste em separar as coisas conforme suas responsabilidades. 
+Ou seja, botar classes em packages que facam sentindo para suas preocupacoes é um exemplo disso. 
+SOC reflete diretamente no design do código.
+	Integridade Conceitual - Consiste em fazer com que a solucao elaborada execute 
+sempre da mesma forma. Para as diversas situacoes ao qual ela se enquadra. 
+Sendo assim queremos ter uma padronização na nossa solução para que com isso possamos 
+ter uma consistencia em nossa aplicação.
+	Escalabilidade - Podemos dizer que é "crescer" com a situacao. 
+Por exemplo, se temos um software que atende 10k users, tendo escalabilidade ele 
+pode atender muito mais. Podemos escalar nossas aplicacoes de duas formas, 
+escalar usuarios e escalar desenvolvedores. Vale ressaltar que escalar desenvolvedores 
+não é tão fácil quanto parece, pois se a aplicação não foi muito bem pensada, 
+tudo pode se resumir a merge e então nós temos um grande problema.
+	Profile - É entender oque nossos serviços necessitam (I/O, Memory, etc) para que 
+com essas informações sejamos capazes de escalar a nossa aplicação de forma eficiente.
+	Distribuição - Na arquitetura de software temos a questão da distribuição e ela 
+é muito situacional. Nós temos nossa rede local oq nós proporciona uma baixa latência e 
+também temos nossa rede remota que nós tras a possibilidade de escalar a nossa aplicação. 
+Vale sempre botar as coisas na balança e fazer as escolhas conforme a situação.
+	I/O - Existem dois tipo de I/O. São eles:
+		I/O bloqueante - Ele faz uma chamada e fica com o processo ali pendente 
+esperando pela resposta. Dessa forma bloqueando o sistema.
+		I/O não-bloqueante - Ele é assincrono, ou seja, ele faz uma chamada e 
+não fica na espera dela. Ele libera o sistema para outras atividades, e reutiliza 
+de forma mais eficiente o hardware.
+	Metadados - São dados que descrevem dados, ou seja, um tipo de rótulo 
+para a nossa aplicação.
+	
+
+2 - Do que é composto um contrato de serviço?
+	É composto pelo nome do servico, suas operacoes publicas (pq as privadas são tidas 
+como detalhe de implementacao e devem ser escondidas do usuário) comportamento do servico, 
+I/O, versão, formato dos dados, layout dos dados, protocolo de acesso frontend, e outras 
+características específicas que façam sentido para o negócio/arquitetura. 
+
+3 - Falando de BC, modificar a ordenação de uma lista de retorno, implica em que?
+	Implica na quebra do contrato, pois nossos consumidores esperam que a resposta venha 
+sempre de uma certa forma. E mudando isso sem um aviso previo acabamos quebrando nossos consumidores.
+
+4 - Em SOA, tudo é serviço? Explique por que.
+	Nem tudo é serviço, sempre devemos identificar se a ação faz parte do negócio ou não. 
+E se ela for um serviço, apartir dai entrar em um contrato com suas devidas especificações.
+
+5 - Quais são os principios do manifesto SOA?
+	* Valor do negocio em vez de estratégia técnica;
+	* Valores estratégicos sobre projetos específicos;
+	* Interoperabilidade intrínseca sobre integração customizada;
+	* Serviços compartilhados sobre serviços de implementação específica;
+	* Flexibilidade sobre otimização;
+	* Refinamento evolucionário sobre perfeição inicial.
+
+6 - Devemos ter um serviço CPU Bound e Latency Bound na mesma maquina?
+	Em SOA nós não buscamos por isso, devemos sempre dividir as coisas. 
+Por exemplo ter uma maquina pra cada tipo de coisa. Assim se por algum motivo acarbamos 
+sobrecarregando uma maquina e derrubando-a, derrubamos somente uma parte do sistema e não grande parte do sistema. 
+
+7 - Cite 3 vantagens de um serviço com uma operação async.
+	* Não bloqueante;
+	* Mais Performático;
+	* Escalabilidade.
+
+8 - Explique a diferença de Long Running Job e Short, com exemplos.
+	Short running job são jobs onde nós obtemos a nossa resposta rapidamente. Um exemplo disso é 
+fazer uma pesquisa na internet por exemplo. Já o long running job, obviamente é o contrario disso, ou seja, 
+é quando nós temos uma demora para obter a nossa resposta, um exemplo é a renderização de algum processo pesado, 
+ele certamente será mais demorado do que uma busca na internet.
+
+
+

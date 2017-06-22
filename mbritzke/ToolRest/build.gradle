@@ -1,0 +1,33 @@
+group 'com.github.matheusbritzke.exercise'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile([
+            'org.springframework:spring-core:4.3.8.RELEASE',
+            'org.springframework:spring-context:4.3.8.RELEASE',
+            'org.springframework:spring-beans:4.3.8.RELEASE',
+            'org.springframework:spring-web:4.3.8.RELEASE',
+
+            'org.eclipse.jetty:jetty-server:9.4.5.v20170502',
+            'org.eclipse.jetty:jetty-annotations:9.4.5.v20170502',
+            'org.eclipse.jetty:jetty-webapp:9.4.5.v20170502',
+
+            'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.3.2',
+            'javax.json:javax.json-api:1.0',
+
+            'org.apache.cxf:cxf-rt-frontend-jaxrs:3.1.11',
+            'org.apache.cxf:cxf-rt-rs-extension-providers:3.1.11',
+            'org.apache.cxf:cxf-rt-rs-client:3.1.11',
+            'org.apache.cxf:cxf-integration-cdi:3.1.11',
+            'org.apache.httpcomponents:httpclient:4.5.3',
+            'junit:junit:4.12'
+    ])
+}

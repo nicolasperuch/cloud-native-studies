@@ -1,0 +1,39 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.4.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'org.springframework.boot'
+
+
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+   
+}
+
+
+dependencies {
+    compile([
+            'org.springframework.boot:spring-boot-starter-web',
+            'org.springframework.boot:spring-boot-starter-actuator',
+            'org.kohsuke:github-api:1.85',
+    ])
+}
+
+apply plugin: 'java'
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'exGitHub',
+                'Implementation-Version': 1
+    }
+}

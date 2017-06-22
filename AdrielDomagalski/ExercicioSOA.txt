@@ -1,0 +1,46 @@
+1)O que é Arquitetura de Software de verdade? Quais elementos?
+
+Arquitetura de software é o que o reflexo do negocio,e o desing principal do sistema, ela resolve grandes problemas, porém nem todos, pois não teria sentido então exixtir programadores se a arquitetura resolve-se tudo. Dentro de arquitetura temo elementos como SOC, que diz que não pode deixar as classes muito acopladas, e isso é arquitetura tambem, pensar sempre bem em separaçaõ de conceitos, Integridade conceitual
+Integridade conceitual, manter um padrão de desenvolvimento, um solução pensada deve ser seguindo a ideia inicial, para não ter problemas futuros,
+Escalabilidade tanto de usuarios quanto de programadores, IO bloqueante e não bloqueante tambem são elementos da Arquitetura.
+
+
+2)Do que é composto um contrato de serviço? 
+
+Um contrato de serviço por dados, assinatura, o numero de parametros a ordem de parametros, nome do serviço, operações publica, comportamento do serviço porque é motivo de estar usando o serviço, imput parametros, output o que retorna e isso faz parte porque se eu tenho dois parametros e passo 3 ele quebra a aplicação, versão do sistema pois se tem outros softwares utilizando e muda quebra os outros que estão utilizando, o formato dos dados pois se ele deveria retornar double e retorna int, isso quebra, Protocolos de chamada.
+
+3) Falando de BC, modificar a ordenação de uma lista de retorno, implica em que?
+
+Quandoo se modifica uma lista de retorno, está sendo quebrado o contrato criado antes, e imagine se varios softwarees utilizam este serviço, se não houver controle de versão pode afetar muitos outros softwares, então se fizer uma mudança, lança uma nova versão, mas mantem a antiga para quem use, contudo estes softwares que utilizam a versão antiga devem migrar o quanto antes, pois após um tempo não haverá mais suporte para aquela versão.
+
+4) Em SOA tudo é serviço? Explique Por que.
+
+Não, pois SOA é uma linha de pensamenton então não necessariamente tudo será um serviço, tanto que este tipo de filosofia pode ser implementado em outras áreas, então para saber se é preciso um serviço deve-se fazer uma pesquisa no sistema.
+
+
+5)Quais são os principios do manifesto SOA?
+
+O manifesto SOA foi uma tentativa de frear o mercado que estava indo muito para o ferramental e voltar para principios, formas de fazer sofotware.  Principios: 
+Valor de negocio ao inves de estrategia tecnica, é mais importante fazer coisas que agragam o teu negocio do que seguir uma estrategia da tua ti; Objetivos estratégicos em relação a benefícios específicos de projetos, meus serviços podem ser reutilizados dentro da aplicação;  Interoperabilidade intrínseca em relação a integração personalizada, quando se faz integração customizada, existe problemas, que eh integrar dois sistemas, por isso se faz Interoperabilidade intrínseca, que faz os dois softwares já penasndo nisso; 
+Serviços compartilhados em relação a implementações de propósito específico, eh muito melhor compartilhar o serviço, para aproveitar serviços, e tudo que for ser compartilhado deve ser pensado; 
+Flexibilidade em relação a otimização, conseguir mexer nas coisas com flexibilidade;
+Refinamento evolutivo em relação a busca da perfeição inicial, de cara não se faz uma coisa para ser compartilhada, faz o essencial e depois
+refatora;
+SOC separação de conceitos, o que colocarar em cada serviço.
+
+6)Devemos ter um serviço de CPU Bound e Latency Bound na mesma maquína?
+
+Não, pois isso poderia gerar problemas de disponibilidade, onde um programa precisasse processar muita informação e não consigo melhorar isso ou disponibilizar porque trabalha com busca ao mesmo tempo, o ideal é cada máquina ter seu proprio serviço, para poder ter uma melhor disponibilidade.
+
+7) Cite 3 vantagens de um serviço com 1 operação Async.
+
+Não-Bloqueante: faz uma chamada pro sistema e o usuario pode continuar utilizando o sistema sem nenhum problema e quando ficar pronto o processamento ele retorna a resposta;
+Mais Performatico: consegue-se ter um melhor desempenho da maquina, utilizando todos os seus recursos ao maximo;
+Escalável: consegue-se escalar o sistema de uma maneira muito mais facil, em momentos de uso muito alto do ssistema, consegue-se aumentar a capacidade para não ter problemas.
+
+8) Explique a diferença de um Long Running Job e Short, com exemplos.
+
+Long Running job: são serviço que demoram a ser processados, ou seja podem levar horas ou dias para processar, exemplo seria processar um sangue coletado de uma pessoa, demoraria dias para se ter uma resposta completa do resultado;
+Short Running job: são serviços que processam muito rapidamente, exemplo seria fazer uma pesquisa no google leva milesegundos, passar o cartão de credito, ou seja, são processos muito rápidos.
+
+

@@ -1,0 +1,35 @@
+1 - O QUE É ARQUITETURA DE SOFTWARE DE VERDADE? QUAIS ELEMENTOS?
+	Arquitetura é responsavel pelos grandes problemas, é o design principal, uma estrutura geral que é a base para outros designs menores que são inseridos nesse sistema mais amplo.
+	Uma arquitetura que tenha uma duração sólida, Alta performace e escalabilidade, possui fácil fluxo de desenvolvedores, etc...
+
+
+2 - DO QUE É COMPOSTO UM CONTRATO DE SERVIÇO?
+	Entradas, saídas, restrições, premissas e comportamento.
+
+
+3 - FALANDO DE BC, MODIFICAR A ORDENAÇÃO DE UMA LISTA DE RETORNO, IMPLICA EM QUE?
+	Uma mudança pode implicar em uma quebra para o cliente e com isso ele poderia ter um impacto no negócio, o ideal seria criar uma nova versão mantendo a antiga para que o cliente migre quando for necessário.
+
+
+4 - EM SOA, TUDO É SERVIÇO?  EXPLIQUE:
+	Não, nem tudo tem essa necessidade e é necessário que haja uma exploração de sistemas existentes para verificar possiveis candidatos a serviços, verificar o valor para o negócio e não para a TI.
+
+
+5 - QUAIS SÃO OS PRINCIPIOS DO MANIFESTO SOA?
+	Os principios envolvem respeitar a estrutura social e de poder da organização, reconhecer que requer mudanças em múltiplos níveis, é váriavel, pode ser realizado através de uma variedade de tecnologias e padrões, busca uniformidade no exterior para permitir diversidade no interior, maximiza o uso de serviços considerando o escopo de utilização atual e futuro, separa os diferentes aspectos de um sistema que possui uma modificação em diferentes frequências são alguns dos principais.
+
+
+6 - DEVEMOS TER UM SERVIÇO CPU BOUND E LATENCY BOUND NA MESMA MÁQUINA?
+	Nao, Além de utilizar diferentes tipos em uma mesma máquina teria problemas de escalabildiade, uma aplicação que estivesse gerando um relátorio precisaria de um enfase alto em CPU e essa requisição poderia derrubar uma busca, se um problema vigente com mais de um tipo de serviço falhar pode derrubar todas as outras que estão ligadas juntas, os impactos devem ser isolados, é o que define SOA.
+
+
+7 - CITE 3 VANTAGENS DE UM SERVIÇO COM UMA OPERAÇÃO ASYNC:
+	- Performace: O uso de técnicas assíncronas, traz opções de otimização quando utilizamos os recursos. Podemos alocar recursos limitados e suficientes para o tratamento das mensagens. Um exemplo: Um processador de empréstimo, pode levar muito tempo para processar uma solicitação de cliente.
+	
+	- Escalabilidade: Com isto, poderemos consumir aos poucos os elementos da fila sem aumentar os recursos em momentos de pico, podendo escolher quando escalar de uma forma muito mais proveitosa;
+	
+	- Não-Bloqueante: Uma das vantagens é o fato de ele ser IO não bloqueante, exemplo se fossemos adicionar um pet que pertence a um Dono em um BD e adicionar esse Dono caso não esteja. O Cliente que enviou a requisição mais antiga poderá ter pelo menos o Animal registrado no Banco mesmo que ainda tenha requisições mais antigas sendo processadas.
+	
+
+8 - EXPLIQUE A DIFERENÇA DE LONG RUNNING JOB E SHORT, COM EXEMPLOS:
+	Os serviços de short-running Classificam processos que ocorrem de forma rápida, por não mais do que alguns segundos, a maioria deles são executados em um único "estouro". Já os de long-running já são clássificados, como o nome ja diz, com tempos de espera mais longos e seu processo tem múltiplas rajadas, como exemplo podemos ter um motor que é reinicidado para manutenção enquanto o processo aguarda dias para uma ação humana, o processo sobrevive ao reinicio porque seu estado é persistente e quando ele volta ele obtem o estado do banco para lembrar do seu estado.

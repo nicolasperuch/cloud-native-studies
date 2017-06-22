@@ -1,0 +1,44 @@
+1- O que é Arquitetura de Software de verdade? Quais elementos?
+	Arquitetura de Software é planejar o software de um modo mais geral e complexo. Não pensando somente na estrutura 
+de dados ou em designs para a aplicação, mas também na distribuição e escalabilidade do programa, por exemplo. Outros 
+elementos arquiteturais são, por exemplo, banco de dados, protocolos de acesso, servidores e a interação de tudo isso.
+
+2- Do que é composto um contrato de serviço?
+	Um contrato de serviço contém as informações relevantes sobre as tecnologias a serem utilizadas para o desenvolvimento. 
+Contém informações como: nome de serviço, operações públicas, comportamento, input/output, versão, formato e o layout dos dados, 
+protocolos de acesso e outras coisas que forem julgadas necessárias.
+
+3- Falando de BC, modificar a ordenação de uma lista de retorno, implica em que?
+	Implica inicialmente em uma quebra de contrato, pois se foi acordado que uma determinada função deve retornar X, o 
+esperado é que ela retorne X, nada diferente disso. Essa quebra de contrato causa um efeito dominó em diversos outros sistemas
+que utilizam essa função esperando o retorno X. Se elas recebem algo diferente do esperado, o sistema vai quebrar.
+
+4- Em SOA, tudo é serviço? Explique porque.
+	Não. Como diz o nome, SOA é uma Arquitetura Orientada a Serviços, ou seja, Serviços são o "norte" dessa arquitetura,
+mas não que ela seja composta somente de serviços. A necessidade dos serviços varia muito de acordo com o valor de negócio, se 
+isso vale ou não a pena para o projeto e, como dito no Manifesto, valor de negócio acima da estratégia técnica.
+
+5- Quais são os principios do manifesto SOA?
+	Baixo acoplamento, Separação de Conceitos (SOC), Flexibilidade, Abstração, além dos valores fundamentais do manifesto:
+	- Valor de negócio além da estratégia técnica;
+	- Objetivos estratégicos além de benefícios específicos de projetos;
+	- Interoperabilidade intrínseca além de integração personalizada;
+	- Serviços compartilhados além de implementações de propósito específico;
+	- Flexibilidade além de otimização;
+	- Refinamento evolucionário além de buscar a perfeição inicial. 
+
+6- Devemos ter um serviço CPU Bound e Latency Bound na mesma máquina?
+	Não, porque podemos sobrecarregar a máquina com coisas desnecessárias. Quanto mais separados, melhor. Aí no lugar de 
+uma única "supermáquina", utilizaríamos uma máquina com CPU melhor para um serviço CPU Bound e uma máquina com uma rede melhor 
+para um serviço Latency Bound. Assim, evita-se que a aplicação inteira caia por uso desnecessário de hardware. 
+
+7- Cite 3 vantagens de um serviço com uma operação Async.
+	Operações Async são mais escaláveis, são mais rápidas e são não-bloqueantes, ou seja, permite outras operações em 
+paralelo, muito melhor para o negócio.	
+
+8- Explique a diferença de Long Running Job e Short, com exemplos.
+	Long Running são aplicações que demandam muito tempo de processamento para retornar o resultado esperado, como por 
+exemplo aplicações para o meio acadêmico que as vezes demandam dias de funcionamento para entregar uma resposta.
+	Short Running são aplicações mais rápidas, que entrega o esperado no momento solicitado. Exemplo: aplicações 
+convencionais como um pagamento via cartão de crédito, uma calculadora simples, etc.
+	

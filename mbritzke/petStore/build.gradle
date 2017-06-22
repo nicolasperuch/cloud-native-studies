@@ -1,0 +1,25 @@
+group 'com.ilegra.jts.petStore'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile ([
+            'junit:junit:4.12'
+    ])
+
+    compile ([
+            'com.google.inject:guice:3.0',
+            'log4j:log4j:1.2.17',
+            'org.slf4j:slf4j-log4j12:1.7.10',
+            'commons-logging:commons-logging:1.2',
+    ])
+
+    compile group: 'com.google.inject.extensions', name: 'guice-multibindings', version: '4.1.0'
+}

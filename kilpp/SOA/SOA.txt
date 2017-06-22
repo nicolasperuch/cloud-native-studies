@@ -1,0 +1,42 @@
+1 - O que é Arquitetura de software de Verdade? Quais Elementos?
+		Arquitetura de software é a visão de como que as coisas vão acontecer. Nesta parte existe uma perspectiva encontra-se a questão do design principal que buscará resolver os problemas de um contexto maior. Podemos ainda citar que existe arquitetura tanto para componentes quanto para o sistema em geral. Há uma questão muito importate chamada SOC(Separation of Concerns) onde cada coisa será separada por sua exata função e saber porque da separação desta função. Para isso é muito importate que se tenha em mente o conceito de integridade conceitual que prega que a ideia conceito deverá ser implementada. Ainda, busca-se, dentro deste conceito, atingir escalabilidade de software e programadores. Mas, o que isto quer dizer: Um programa onde existem módulos(serviços) para se trabalhar facilita a modificação de componentes assim como é muito mais facil diversos programadores trabalharem juntos em cada questão sem interefir no trabalho do outro.(Evitar merges) 		
+
+2 - Do que é composto um contrato de serviço?
+		Um contrato de serviço é composto de diversos fatores que irão descrever o que ele fará:
+		- Nome do Serviço 
+		- operações Públicas - esconde operações privadas para abstrair como é feito o serviço
+		- Comportamento do Serviço - o que se é esperado que ele faça
+		- Input - parametros que serão passados para o serviço
+		- Output - o que este serviço retornará
+		- Versão - versionamento para garantia dos serviços na designada versão
+		- Formato dos dados json, xml, binário - formato que será a troca de mensagens
+		- Layout dos dados: a ordem dos dados, como elas realmente serão apresentadas
+		- Protocolo de acesso front-end: SOAP, REST, EJB, IPC, ATORES, Stream - de que maneira o cliente usará os serviços
+
+3 - Falando em BC, modificar a ordenação de uma lista de retorno, implica em que?
+		Mudar o output de um serviço acarreta em um Breaking Point pois a nível de contrato estava estipulado tal forma de retorno. Assim fazendo uma mudança nessa regra pode acarretar em quebras para todos que estiverem usando esse serviço
+
+4 - Em SOA, tudo é serviço? Explique por que.
+		Pelo Gartner Group a definição de SOA é: Uma abordagem arquitetural corporativa que permite a criação de serviços de negócios interoperáveis que podem facilmente ser reutilizados e compartilhados entre aplicações e empresas.
+		Pelo seu nome percebemos que está muito fortemente enraizado com os serviços que serão implementados abaixo dessa arquitetura. Então, podemos dizer que em SOA nem tudo é serviço no ponto de que a comunicação entre essas funcões será independente do estado de outro serviço formando um desaclopamento dos mesmos. Ou seja, além do serviço pensa-se no valor do negócio onde há aproveitamento de diversos serviços já existentes.
+
+5 - Quais são os princípios do manifesto SOA?
+		Os princípios SOA envolvem tudo relacionado a uma arquitetura orientada a serviços. No seu manifesto, foram priorizados diversos fatores:
+		- Valor de negócio acima de estratégia técnica
+		- Valores estratégicos acima de benefícios específicos do projeto
+		- Interoperabilidade intrísica acima de integração customizada
+		- Serviços compartilhados acima implementações com propósito específico
+		- Flexibilidade acima de otimização
+		- Refinamento em evolução acima da busca por perfeição inicial
+
+6 - Devemos ter um serviço CPU Bound e Latency Bound na mesma máquina?
+		Devemos pensar no profile do serviço, onde cada componente precise mais de algum recurso. Senão, assim que algo neste serviço cair, ele ficará indisponível. Devemos pensar em separar as necessidades para garantir disponibilidade do mesmo.
+
+7 - Cite 3 vantagens de um serviço com 1 operação Async. 
+
+		-Não bloqueante: requisições em paralelo onde elas retornaram quando estiverem prontas
+		-Mais Performático: hardware melhor utilizado
+		-Escalabilidade: diversos clientes poderão usar o serviço sem serem bloqueados
+
+8 - Explica a diferença de Long Running Job e Short, com exemplos.
+		Long e Short Running jobs são definidos em tempos de resposta para o cliente. Ou seja, um job Long poderá estar sendo rodado sem a necessidade do cliente saber que está rodando ou que demore realmente em tempos de resposta devido a necessidade computacional. Já o job Short acontecerá instantaneamente mas respectivamente a sua latencia. Como exemplos para Long podemos citar o processamento de DNA para diversas relações em algum serviço. Como serviços Short, usamos todo dia pagamentos com cartão ou pesquisas em sites como google.

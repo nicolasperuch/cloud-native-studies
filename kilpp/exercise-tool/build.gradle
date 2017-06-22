@@ -1,0 +1,28 @@
+group 'com.gradle.exercise.tool'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.springframework', name: 'spring-core', version: '4.3.8.RELEASE'
+    compile group: 'org.springframework', name: 'spring-context', version: '4.3.8.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version: '4.3.8.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version: '4.3.8.RELEASE'
+
+    compile group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.4.5.v20170502'
+    compile group: 'org.eclipse.jetty', name: 'jetty-annotations', version: '9.4.5.v20170502'
+    compile group: 'org.eclipse.jetty', name: 'jetty-webapp', version: '9.4.5.v20170502'
+
+    compile group: 'org.apache.cxf', name: 'cxf-rt-frontend-jaxrs', version: '3.1.11'
+    compile group: 'org.apache.cxf', name: 'cxf-rt-rs-extension-providers', version: '3.1.11'
+    compile group: 'org.apache.cxf', name: 'cxf-rt-rs-client', version: '3.1.11'
+    compile group: 'org.apache.cxf', name: 'cxf-integration-cdi', version: '3.1.11'
+
+}

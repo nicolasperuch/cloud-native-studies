@@ -1,0 +1,40 @@
+group 'com.ilegra.jt'
+version '1.0-SNAPSHOT'
+
+apply plugin: "java"
+apply plugin: "application"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+sourceSets {
+    main.java.srcDirs = ["src/main/java/"]
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url "https://oss.sonatype.org/content/groups/public/"
+    }
+}
+
+dependencies {
+    testCompile('junit:junit:4.12')
+    compile('com.netflix.karyon:karyon2-core:2.2.0-rc.2')
+    compile('com.netflix.karyon:karyon2-jersey-blocking:2.2.0-rc.2')
+    compile('com.netflix.karyon:karyon2-archaius:2.2.0-rc.2')
+    compile('com.netflix.karyon:karyon2-servo:2.2.0-rc.2')
+    compile('com.netflix.karyon:karyon2-admin-web:2.2.0-rc.2')
+    compile('com.netflix.karyon:karyon2-eureka:2.2.0-rc.2')
+    compile('org.slf4j:slf4j-api:1.7.0')
+    compile('org.slf4j:slf4j-simple:1.7.0')
+    compile('org.codehaus.jettison:jettison:1.2')
+    compile('org.springframework:spring-core:4.3.8.RELEASE')
+    compile('org.springframework:spring-context:4.3.8.RELEASE')
+    compile('org.springframework:spring-beans:4.3.8.RELEASE')
+    compile('org.springframework:spring-test:4.3.8.RELEASE')
+    compile('org.springframework:spring-web:4.3.8.RELEASE')
+}
