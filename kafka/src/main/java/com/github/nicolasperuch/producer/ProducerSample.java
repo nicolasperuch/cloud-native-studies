@@ -27,7 +27,7 @@ public class ProducerSample {
 
         List<String> messages = new ArrayList<String>();
 
-        messages.add("3");
+        messages.add("It's a test");
 
         messages.stream()
                 .forEach(m -> {
