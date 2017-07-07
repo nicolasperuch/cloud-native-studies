@@ -9,26 +9,13 @@ public class MainRunner {
 
     public static void main(String[] args) {
 
-        Configuration cepConfig = new Configuration();
-        cepConfig.addEventType("StockTick", Tick.class.getName());
-        EPServiceProvider cep = EPServiceProviderManager.getProvider("myCEPEngine", cepConfig);
-        EPRuntime cepRT = cep.getEPRuntime();
-
-        EPAdministrator cepAdm = cep.getEPAdministrator();
-        EPStatement cepStatement = cepAdm.createEPL(
-                "select * from " +
-                "StockTick(symbol='AAPL').win:length(2) " +
-                "having avg(price) > 6.0");
-
-        EPStatement cepStatement2 = cepAdm.createEPL("select * from " +
-                "StockTick(symbol='AAPL').win:length(2) " +
-                "having avg(price) < 6.0");
-
-        cepStatement.addListener(new MyListener("MORE than 6"));
-        cepStatement2.addListener(new MyListener("LESS than 6"));
-        // We generate a few ticks...
+        Esper esper = new Esper();
+        esper.addQuery("select * from StockTick(symbol='AAPL').win:length(2) having avg(price) > 6.0");
+        esper.addListener(new MyListener("MORE than 6"));
+        esper.addQuery("select * from StockTick(symbol='AAPL').win:length(2) having avg(price) < 6.0");
+        esper.addListener(new MyListener("LESS than 6"));
         for (int i = 0; i < 10; i++) {
-            GenerateRandomTick(cepRT);
+            GenerateRandomTick(esper.getCepRT());
         }
 
     }
