@@ -10,7 +10,7 @@ import java.util.Properties;
 public class Config {
 
     @Bean
-    public KafkaProducer() {
+    public KafkaProducer kafkaProducer() {
         Properties props = new Properties();
         props.put("bootstrap.servers", "localhost:9092");
         props.put("acks", "1");
