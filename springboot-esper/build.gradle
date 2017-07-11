@@ -1,0 +1,16 @@
+group 'com.github.nicolasperuch'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile('junit:junit:4.12')
+    compile('com.espertech:esper:6.1.0')
+    compile('org.slf4j:slf4j-log4j12:1.7.19')
+}
