@@ -3,11 +3,14 @@ package com.github.nicolasperuch.pojo;
 public class Component {
 
     private String name;
+    private String parent;
     private String status;
     private int number;
 
-    public Component(String name, int number) {
+    public Component(String name, String parent, String status, int number) {
         this.name = name;
+        this.parent = parent;
+        this.status = status;
         this.number = number;
     }
 
@@ -34,6 +37,7 @@ public class Component {
     public String toString() {
         return "Component{" +
                 "name='" + name + '\'' +
+                ", parent='" + parent + '\'' +
                 ", status='" + status + '\'' +
                 ", number=" + number +
                 '}';

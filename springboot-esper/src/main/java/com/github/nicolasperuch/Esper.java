@@ -9,7 +9,8 @@ public class Esper {
     private EPServiceProvider cep;
     private EPRuntime cepRT;
     private EPAdministrator cepAdm;
-    private EPStatement cepStatement;
+
+    private MyListener listener;
 
     public Esper() {
         cepConfig = new Configuration();
@@ -17,18 +18,30 @@ public class Esper {
         cep = EPServiceProviderManager.getProvider("myCEPEngine", cepConfig);
         cepRT = cep.getEPRuntime();
         cepAdm = cep.getEPAdministrator();
+        listener = new MyListener("Default");
     }
 
     public EPRuntime getCepRT() {
         return cepRT;
     }
 
-    public void addQuery(String query){
-        cepStatement = cepAdm.createEPL(query);
+    public void createEPLWithListener(String query){
+        cepAdm.createEPL(query).addListener(listener);
     }
 
-    public void addListener(MyListener listener){
-        cepStatement.addListener(listener);
+    public void createWindow(String parent, String component){
+        createEPLWithListener("create window "+parent+component+"Status.win:length(1) as " +
+                "(name string, status string, parent string, number int)");
+        createEPLWithListener("insert into "+parent+component+"Status " +
+                "select name, \"good\" as status, parent, number "+
+                "from Component");
+        createEPLWithListener("insert into "+parent+component+"Status " +
+                "select name, \"warn\" as status, parent, number "+
+                "from Component");
+        createEPLWithListener("insert into "+parent+component+"Status " +
+                "select name, \"error\" as status, parent, number "+
+                "from Component");
+
     }
 
 }
