@@ -5,13 +5,8 @@ import com.espertech.esper.client.UpdateListener;
 
 public class MyListener implements UpdateListener{
 
-    private String name;
-
-    public MyListener(String name) {
-        this.name = name;
-    }
 
     public void update(EventBean[] newData, EventBean[] oldData) {
-        System.out.println("- - - "+name+" - Event received: " + newData[0].getUnderlying());
+        System.out.println("- - Event received: " + newData[0].getUnderlying());
     }
 }
