@@ -5,7 +5,7 @@ such as:<br />
 * [Esper](https://github.com/nicolasperuch/cloud-native-studies/tree/master/springboot-esper "Esper is tricky")
 * [FluentD](https://gist.github.com/nicolasperuch "Lots of gists in the link")
 * [SpringBoot and Microservices](https://github.com/nicolasperuch/cloud-native-studies/tree/master/jt-2017/nicolasperuch/Microservices-Exercise "Cool example about microservices using springboot")
-* [REST](https://github.com/nicolasperuch/cloud-native-studies/tree/master/jt-2017/nicolasperuch/Toll-Rest-Exercise "Cool REST example)
+* [REST](https://github.com/nicolasperuch/cloud-native-studies/tree/master/jt-2017/nicolasperuch/Toll-Rest-Exercise "Cool REST example")
 * [Some of Netflix OSS](https://github.com/nicolasperuch/cloud-native-studies/tree/master/jt-2017/nicolasperuch/netflixoss-microservices "NETFLIX IN DA HOUZ")
 
 
