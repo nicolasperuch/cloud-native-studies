@@ -31,15 +31,15 @@ public class Esper {
 
     public void createWindow(String parent, String component){
         createEPLWithListener("create window "+parent+component+"Status.win:length(1) as " +
-                "(name string, status string, parent string, number int)");
+                "(name string, status string, number int)");
         createEPLWithListener("insert into "+parent+component+"Status " +
-                "select name, \"good\" as status, parent, number "+
+                "select name, \"good\" as status, number "+
                 "from Component");
         createEPLWithListener("insert into "+parent+component+"Status " +
-                "select name, \"warn\" as status, parent, number "+
+                "select name, \"warn\" as status, number "+
                 "from Component");
         createEPLWithListener("insert into "+parent+component+"Status " +
-                "select name, \"error\" as status, parent, number "+
+                "select name, \"error\" as status, number "+
                 "from Component");
 
     }

@@ -22,10 +22,10 @@ public class MainRunner {
         esper.createEPLWithListener("create window "+parent+"Status.win:length(1) as " +
                 "(name string, status string, number int)");
         esper.createEPLWithListener("insert into "+parent+"Status " +
-                "select memory.parent as name, 'error' as status, number " +
+                "select '"+parent+"' as name, 'error' as status, memory.number as number " +
                 "from "+parent+component1+"Status as memory, "+parent+component2+"Status as cpu " +
-                "where memory.parent = cpu.parent " +
-                "and memory.parent = 'PC01' and (memory.status = 'error' or cpu.status = 'error')");
+                "where memory.number = cpu.number " +
+                "and (memory.status = 'error' or cpu.status = 'error')");
 
         for (int i = 0; i < 10; i++)
             GenerateRandomComponent(esper.getCepRT());

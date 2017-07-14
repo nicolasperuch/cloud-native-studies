@@ -14,6 +14,12 @@ public class Component {
         this.number = number;
     }
 
+    public String getParent() {
+        return parent;
+    }
+    public void setParent(String parent) {
+        this.parent = parent;
+    }
     public String getName() {
         return name;
     }
