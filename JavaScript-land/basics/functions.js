@@ -1,5 +1,5 @@
 var sum = function (number1, number2) {
-    return function redundatSumFunction(){
+    return function redundatWayToSum(){
         return number1 + number2;
     }
 }
