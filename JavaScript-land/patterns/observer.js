@@ -27,7 +27,7 @@ var observer = {
 		}
 	}
 	
-    };
+};
 			
 var blogger = {
 	writeBlogPost:function () {
@@ -42,22 +42,26 @@ var la_times = {
 		this.publish(paper);
 	}
 };
-			observer.make(blogger);
-			observer.make(la_times);
-			var jack = {
-				read:function (what) {
-					console.log('I just read that ' + what)
-				}
-			};
-			var jill = {
-				gossip:function (what) {
-					console.log('You didn\'t hear it from me, but ' + what)
-				}
-			};
-			blogger.addSubscriber(jack.read);
-			blogger.addSubscriber(jill.gossip);
-			blogger.writeBlogPost();
-			blogger.removeSubscriber(jill.gossip);
-			blogger.writeBlogPost();
-			la_times.addSubscriber(jill.gossip);
-			la_times.newIssue();
+
+observer.make(blogger);
+observer.make(la_times);
+			
+var jack = {
+	read:function (what) {
+		console.log('I just read that ' + what)
+	}
+};
+			
+var jill = {
+	gossip:function (what) {
+		console.log('You didn\'t hear it from me, but ' + what)
+	}
+};
+
+blogger.addSubscriber(jack.read);
+blogger.addSubscriber(jill.gossip);
+blogger.writeBlogPost();
+blogger.removeSubscriber(jill.gossip);
+blogger.writeBlogPost();
+la_times.addSubscriber(jill.gossip);
+la_times.newIssue();
